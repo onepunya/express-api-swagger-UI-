@@ -7,7 +7,7 @@ This API is a product sales management system that provides CRUD (Create, Read, 
 1. **Installation**
    - Clone this repository to your local:
      ```
-     git clone <repo URL>
+     git clone https://github.com/onepunya/express-api-swagger-UI-.git
      ```
    - Install the required dependencies:
      ```
@@ -22,7 +22,7 @@ This API is a product sales management system that provides CRUD (Create, Read, 
    - The API will run on http://localhost:8080/api
 
 3. **Swagger UI Documentation**
-   - Visit http://localhost:8080/api/docs to view the interactive documentation using Swagger UI.
+   - Visit https://express-api-swagger-ui.vercel.app to view the interactive documentation using Swagger UI.
 
 
 
