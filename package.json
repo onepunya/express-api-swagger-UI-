@@ -1,0 +1,14 @@
+{
+  "name": "express-api-swagger-UI",
+  "version": "1.0.0",
+  "description": "this example openapi with swagger ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "body-parser": "^1.19.0"
+  }
+}
