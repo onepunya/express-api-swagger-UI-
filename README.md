@@ -23,7 +23,7 @@ This API is a product sales management system that provides CRUD (Create, Read, 
 
 3. **Swagger UI Documentation**
    - Visit https://express-api-swagger-ui.vercel.app to view the interactive documentation using Swagger UI.
-
+  <img src="https://telegra.ph/file/b0d1a42fce2b1418259a3.jpg" alt="screenshot">
 
 
 ## License
