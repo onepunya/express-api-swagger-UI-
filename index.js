@@ -1,31 +1,32 @@
 const express = require('express');
-const router = express.Router();
+const app = express(); 
 const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
+
 // Middleware untuk CORS
-router.use(cors());
-router.use(bodyParser.urlencoded({ extended: true }));
-router.use(bodyParser.json());
+app.enable("trust proxy");
+app.set("json spaces", 2);
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Dummy data sebagai contoh
 let products = [];
 
-
 //GET to docs openapi
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'openapi.html'));
 });
 
-
 // GET all products
-router.get('/products', (req, res) => {
+app.get('/products', (req, res) => {
   res.json(products);
 });
 
 // GET product by ID
-router.get('/products/:productId', (req, res) => {
+app.get('/products/:productId', (req, res) => {
   const productId = parseInt(req.params.productId);
   const product = products.find(product => product.id === productId);
   if (!product) {
@@ -35,14 +36,14 @@ router.get('/products/:productId', (req, res) => {
 });
 
 // POST new product
-router.post('/products', (req, res) => {
+app.post('/products', (req, res) => {
   const product = req.body;
   products.push(product);
   res.json({ message: 'Product added successfully' });
 });
 
 // PUT update product by ID
-router.put('/products/:productId', (req, res) => {
+app.put('/products/:productId', (req, res) => {
   const productId = parseInt(req.params.productId);
   const productIndex = products.findIndex(product => product.id === productId);
   if (productIndex === -1) {
@@ -53,7 +54,7 @@ router.put('/products/:productId', (req, res) => {
 });
 
 // DELETE product by ID
-router.delete('/products/:productId', (req, res) => {
+app.delete('/products/:productId', (req, res) => {
   const productId = parseInt(req.params.productId);
   const productIndex = products.findIndex(product => product.id === productId);
   if (productIndex === -1) {
@@ -63,11 +64,7 @@ router.delete('/products/:productId', (req, res) => {
   res.json({ message: 'Product deleted successfully' });
 });
 
-
-
-router.listen(PORT, () => {
+// Menggunakan app.listen() untuk memulai server
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
-
-module.exports = router;
