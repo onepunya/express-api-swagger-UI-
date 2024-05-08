@@ -4,7 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
-router.enable("trust proxy");
 router.set("json spaces", 2);
 // Middleware untuk CORS
 router.use(cors());
