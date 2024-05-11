@@ -3,7 +3,7 @@
 <html lang="en-US" translate="no">
   <head>
     <meta charset="UTF-8">
-    <title>express-api-swagger-UI</title>
+    <title>exonity apis|| docs</title>
     <style>
       .swagger-ui .topbar {
         display: none;
@@ -47,14 +47,14 @@ const ui = SwaggerUIBundle({
 	spec: {
   "openapi": "3.0.0",
   "info": {
-    "version": "1.0.0",
-    "title": "Example Product Sales API",
-    "description": "API untuk manajemen penjualan produk"
+    "version": "1.0.2",
+    "title": "Exonity API",
+    "description": "welcome to exonity API"
   },
   "servers": [
     {
-      "url": "https://express-api-swagger-ui.vercel.app"
-    }
+      "url": "https://www.exonity.my.id/#/"
+	    }
   ],
   "paths": {
     "/products": {
@@ -97,15 +97,14 @@ const ui = SwaggerUIBundle({
         }
       }
     },
-    "/products/{productId}": {
+    "/tiktokdl/{tiktok}": {
       "get": {
         "summary": "Dapatkan detail produk",
-        "description": "Mendapatkan detail produk berdasarkan ID",
         "parameters": [
           {
-            "name": "productId",
+            "name": "tiktok url",
             "in": "path",
-            "description": "ID produk yang akan didapatkan",
+            "description": "masukan link tiktok",
             "required": true,
             "schema": {
               "type": "integer",
@@ -115,7 +114,7 @@ const ui = SwaggerUIBundle({
         ],
         "responses": {
           "200": {
-            "description": "Detail produk berhasil ditemukan",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
