@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Example Product Sales API",
+    "description": "API untuk manajemen penjualan produk"
+  },
+  "servers": [
+    {
+      "url": "https://express-api-swagger-ui.vercel.app"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Dapatkan daftar produk",
+        "description": "Mendapatkan daftar semua produk yang tersedia",
+        "responses": {
+          "200": {
+            "description": "Daftar produk berhasil ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Tambah produk baru",
+        "description": "Menambahkan produk baru ke dalam sistem",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sukses menambahkan produk"
+          }
+        }
+      }
+    },
+    "/products/{productId}": {
+      "get": {
+        "summary": "Dapatkan detail produk",
+        "description": "Mendapatkan detail produk berdasarkan ID",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID produk yang akan didapatkan",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detail produk berhasil ditemukan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Perbarui produk",
+        "description": "Memperbarui data produk berdasarkan ID",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID produk yang akan diperbarui",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sukses memperbarui produk"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Hapus produk",
+        "description": "Hapus produk berdasarkan ID",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "description": "ID produk yang akan dihapus",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sukses menghapus produk"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Kemeja"
+          },
+          "price": {
+            "type": "number",
+            "format": "float",
+            "example": 29.99
+          },
+          "quantity": {
+            "type": "integer",
+            "example": 100
+          }
+        }
+      }
+    }
+  }
+}

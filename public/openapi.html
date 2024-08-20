@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!doctype html>
+    <html lang="en-US" translate="no">
+      <head>
+        <meta charset="UTF-8" />
+        <title>express-api-swagger-UI</title>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css"
+        />
+        <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+      </head>
+      <body>
+        <div id="swagger-ui"></div>
+        <script>
+          window.onload = function () {
+            SwaggerUIBundle({
+              url: "/swagger.json",
+              dom_id: "#swagger-ui",
+              presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIBundle.SwaggerUIStandalonePreset,
+              ],
+              layout: "BaseLayout",
+            });
+          };
+        </script>
+      </body>
+    </html>
+  </head>
+</html>
